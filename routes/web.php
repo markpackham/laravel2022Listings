@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,8 @@ Route::get('/posts/{id}', function ($id) {
     ddd($id);
     return response("Post $id");
 })->where('id', '[0-9]+');
+
+// http://localhost:8000/search?name=Timmy&city=London
+Route::get('/search', function (Request $request) {
+    return ("$request->name $request->city");
+});
