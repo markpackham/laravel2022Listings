@@ -15,22 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/hello', function () {
-    return response('<h1>Hello World!</h1>', 200)
-        ->header('Content-Type', 'text/plain')
-        ->header('foo', 'bar');
-});
-
-Route::get('/posts/{id}', function ($id) {
-    // dd($id);
-    ddd($id);
-    return response("Post $id");
-})->where('id', '[0-9]+');
-
-// http://localhost:8000/search?name=Timmy&city=London
-Route::get('/search', function (Request $request) {
-    return ("$request->name $request->city");
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => [
+            [
+                'id' => '1',
+                'title' => 'Listing One',
+                'description' => 'A listing'
+            ],
+            [
+                'id' => '2',
+                'title' => 'Listing Two',
+                'description' => 'A listing'
+            ]
+        ]
+    ]);
 });
