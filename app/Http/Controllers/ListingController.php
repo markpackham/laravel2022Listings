@@ -10,8 +10,11 @@ class ListingController extends Controller
 {
     public function index()
     {
+        // you can use simplePaginate if you just want to show "Previous" and "Next"
+        // the pagination package uses Tailwind for styling, 
+        // to modify the pagination service provider you need to publish it
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(5)
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
         ]);
     }
 
