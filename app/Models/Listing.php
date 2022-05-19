@@ -13,8 +13,14 @@ class Listing extends Model
     {
         // do nothing if there aren't any tags
         if ($filters['tag'] ?? false) {
-            // search in database table
+            // search in listings database table
             $query->where('tags', 'like', '%' . request('tag') . '%');
+        }
+
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%')
+                ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
     }
 }
