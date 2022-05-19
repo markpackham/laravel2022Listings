@@ -11,5 +11,10 @@ class Listing extends Model
 
     public function scopeFilter($query, array $filters)
     {
+        // do nothing if there aren't any tags
+        if ($filters['tag'] ?? false) {
+            // search in database table
+            $query->where('tags', 'like', '%' . request('tag' . '%'));
+        }
     }
 }
