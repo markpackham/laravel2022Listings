@@ -46,4 +46,15 @@ class ListingController extends Controller
 
         return redirect('/')->with('message', 'Job listing created successfully!');
     }
+
+    public function edit(Listing $listing)
+    {
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+    public function destroy(Listing $listing)
+    {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully');
+    }
 }
