@@ -14,6 +14,8 @@ Route::post('/listings', [ListingController::class, 'store']);
 
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
+// Update the Edit
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
