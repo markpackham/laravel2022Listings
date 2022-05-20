@@ -43,6 +43,8 @@ class ListingController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
+            // store example
+            // http://127.0.0.1:8000/storage/logos/dTqIiWCWYgEjykoa8yrvWqZgGZrEUJZvILtrQ1be.png
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
