@@ -41,6 +41,9 @@
                     Don't have an account?
                     <a href="/register" class="text-laravel">Register</a>
                 </p>
+                <p>
+                    Dummy users: tim@email.com timtimtim and jim@email.com jimjimjim
+                </p>
             </div>
         </form>
     </x-card>
